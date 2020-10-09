@@ -23,10 +23,12 @@ public class Scoretext : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        this.ScoreText.GetComponent<Text>().text = "Score:" + this.nowScore + "p";
+       
     }
 void OnCollisionEnter(Collision other)
     {
+
+      
 
         if (other.gameObject.tag == "SmallStarTag")
         {
@@ -54,7 +56,9 @@ void OnCollisionEnter(Collision other)
         }
 
         this.nowScore +=score;
-      
+
+        this.ScoreText.GetComponent<Text>().text = "Score:" + this.nowScore + "p";
+
     }
 }
    
