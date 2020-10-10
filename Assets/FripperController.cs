@@ -43,6 +43,35 @@ public class FripperController : MonoBehaviour
         {
             SetAngle(this.defaultAngle);
         }
+
+        //touchに対応
+        if (Input.touchCount > 0)
+        {
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                Touch t = Input.GetTouch(i);
+
+                if (t.phase == TouchPhase.Began && tag == "LeftFripperTag"&&t.position.x<Screen.width/2.0f)
+                {
+                    SetAngle(this.flickAngle);
+                }
+
+                if (t.phase == TouchPhase.Began && tag == "RightFripperTag" && t.position.x >= Screen.width/2.0f)
+                {
+                    SetAngle(this.flickAngle);
+                }
+
+                if (t.phase == TouchPhase.Ended && tag == "LeftFripperTag"&&t.position.x < Screen.width/2.0f)
+                {
+                    SetAngle(this.defaultAngle);
+                }
+
+                if (t.phase == TouchPhase.Ended && tag == "RightFripperTag" && t.position.x >= Screen.width/2.0f)
+                {
+                    SetAngle(this.defaultAngle);
+                }
+            }
+        }
                 }
 
     public void SetAngle(float angle)
