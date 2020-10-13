@@ -1,15 +1,12 @@
 ﻿
 using System.Collections;
-
 using UnityEngine;
 
 public class Cloudcontroller : MonoBehaviour
 {
 
     private float minimum = 1.0f;
-
     private float magSpeed = 10.0f;
-
     private float magnification = 0.07f;
 
 

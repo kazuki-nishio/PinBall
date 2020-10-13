@@ -1,11 +1,10 @@
 ﻿
 using System.Collections;
-
 using UnityEngine;
 
 public class StarController : MonoBehaviour
 {
-
+    //星の回転スピード
     private float rotspeed = 0.5f;
 
     // Start is called before the first frame update
