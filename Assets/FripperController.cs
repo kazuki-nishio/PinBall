@@ -7,13 +7,7 @@ public class FripperController : MonoBehaviour
     private HingeJoint myHingeJoint;
     private float defaultAngle = 20;
     private float flickAngle = -20;
-
-    //左フリッパーのfingerId
-    private int left;
-
-    //右フリッパーのfingerId
-    private int right;
-
+    private int myfingerId;
 
     // Start is called before the first frame update
     void Start()
@@ -51,21 +45,21 @@ public class FripperController : MonoBehaviour
                 if (t.phase == TouchPhase.Began && tag == "LeftFripperTag" && t.position.x < Screen.width / 2.0f)
                 {
                     SetAngle(this.flickAngle);
-                    left = t.fingerId;
+                    myfingerId = t.fingerId;
                 }
                 //右フリッパーを上げる
                 if (t.phase == TouchPhase.Began && tag == "RightFripperTag" && t.position.x >= Screen.width / 2.0f)
                 {
                     SetAngle(this.flickAngle);
-                    right = t.fingerId;
+                    myfingerId = t.fingerId;
                 }
                 //左フリッパーを下げる
-                if (t.phase == TouchPhase.Ended && tag == "LeftFripperTag" && t.fingerId == left)
+                if (t.phase == TouchPhase.Ended && tag == "LeftFripperTag" && myfingerId == t.fingerId)
                 {
                     SetAngle(this.defaultAngle);
                 }
                 //右フリッパーを下げる
-                if (t.phase == TouchPhase.Ended && tag == "RightFripperTag" && t.fingerId == right)
+                if (t.phase == TouchPhase.Ended && tag == "RightFripperTag" && myfingerId == t.fingerId)
                 {
                     SetAngle(this.defaultAngle);
                 }
